@@ -166,6 +166,11 @@ class SiteController extends Controller
                     
         endforeach; die(); */
          $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+         $dataProvider->query->andFilterWhere([
+             'user_id'=> \Yii::$app->user->id 
+         ]);
+
    
         if (\Yii::$app->user->can('hospital')) {
             return $this->render('/work/hospital',[

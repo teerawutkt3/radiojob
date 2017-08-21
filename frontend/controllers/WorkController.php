@@ -69,6 +69,10 @@ class WorkController extends Controller
     {
         $searchModel = new WorkSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->post() );
+        $dataProvider->query->orderBy([      
+            'money1'=> 'DESC'
+        ]);
+
      //   $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -76,6 +80,8 @@ class WorkController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    
+    
 
 
 
@@ -93,10 +99,14 @@ class WorkController extends Controller
     public function actionHospital(){
         $searchModel = new WorkSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+     
         return $this->render('/work/hospital',[
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+    public  function actoinRadiolocal (){
+        $this->render('work/radioloca');
     }
     
     public function actionViewAjax($id)
@@ -132,11 +142,12 @@ class WorkController extends Controller
     public function actionCreate()
     {
         $model = new Work();
-
                 if ($model->load(Yii::$app->request->post()))
                 {              $model->user_id = \Yii::$app->user->id;
+               // var_dump($model); die();
                 $model->time_begin = MyDate::Time2int( $model->time_begin);
                 $model->time_end = MyDate::Time2int( $model->time_end);
+               // var_dump($model); die();
                                 
                                 if ($model->save())
                                              return $this->redirect(['view', 'id' => $model->id]);
@@ -202,33 +213,6 @@ class WorkController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    public function actionList_data($id){
-        //$amphures= Districts::find()->where(['AMPHUR_ID'=> $id])->all();
-        $model = Work::find()->where(['id'->$id])->all();
-                 foreach ($model as $data) : 
-                                echo '
-                                                	<tr>
-                        											<th>รายละเอียด : </th><td>'.$data->description.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>เวลาเริ่มทำงาน : </th><td>'.$data->time_begin.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>เวลาเลิกงาน : </th><td>'.$data->time_end.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>เงินเดือน : </th><td>'.$data->money1.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>เงินเดือน : </th><td>'.$data->money2.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>ผู้ประกาศ : </th><td>'.$data->user_id.'</td>
-                        							</tr>
-                        							<tr>
-                        											<th>ประกาศเมื่อ : </th><td>'.$data->created_at.'</td>
-                        							</tr>
-                               ';  
-                 endforeach;
-    }
+   
+  
 }

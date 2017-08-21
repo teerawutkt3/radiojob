@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\time\TimePicker;
-use kartik\range\RangeInput;
+
 use kartik\label\LabelInPlace;
 
 /* @var $this yii\web\View */
@@ -53,6 +53,7 @@ use kartik\label\LabelInPlace;
                                                                 ] 
                                                             ]
                                                  )?>
+                                                 
              			 </div>  
                 </div>
                  <div class="row">
@@ -62,6 +63,7 @@ use kartik\label\LabelInPlace;
                           				                  'type'  => LabelInPlace::TYPE_TEXT
                           				           
                                                         ]) ?>
+                                               
                           </div>
                           <div class="col-md-3">
                           						<?= $form->field($model, 'money2')->widget(

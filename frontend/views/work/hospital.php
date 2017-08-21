@@ -6,6 +6,7 @@ use yii\grid\GridView;
 use wattanapong\datetime\DateTimePicker;
 use kartik\nav\NavX;
 use kartik\tabs\TabsX;
+use yii\helpers\Url;
 ?>
 
 
@@ -44,8 +45,17 @@ use kartik\tabs\TabsX;
                                                                               ['class' => 'yii\grid\SerialColumn'],
                                                                               
                                                                               
-                                                                              //   'id',
-                                                                              'description',
+                                                                                 'id',
+                                                                              [
+                                                                                  'attribute' =>'description',
+                                                                                  'format' => 'html',
+                                                                                  'value' => function($model){
+                                                                                      $limit = 40;
+                                                                                      if (strlen($model->description) > $limit )
+                                                                                         return "<p title='".$model->description."'>".substr($model->description, 0,$limit)."...</p>";
+                                                                                        return $model->description;
+                                                                                  }
+                                                                                ],
                                                                               'money1',
                                                                               'money2',
                                                                               [
@@ -71,7 +81,20 @@ use kartik\tabs\TabsX;
                                                                                       ],
                                                                                       'user.fname',
                                                                                       
-                                                                                      ['class' => 'yii\grid\ActionColumn'],
+                                                                                      [
+                                                                                          'class' => 'yii\grid\ActionColumn',
+                                                                                          'template' => '{view}{update}{delete}',
+                                                                                          'buttons' => [
+                                                                                              'view' => function($url,$model){
+                                                                                                  return Html::a('<div class="btn btn-default>
+                                                                                                    <span class="glyphicon glyphicon-eye-open">View</span>
+                                                                                                </div>',Url::toRoute('work/'.$model->id),[
+                                                                                                    'target' => '_blank','data-pjax' => 0
+                                                                                                ]);
+                                                                                              }
+                                                                                          ]
+                                                                                          
+                                                                                      ],
                                                                                       ],
                                                                                             ])
                                                                                            ,

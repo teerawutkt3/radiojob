@@ -6,6 +6,7 @@ RewriteRule ^(frontend|backend)/web/  - [L]
 RewriteRule gitpull.php - [L]
 RewriteRule readfile.php - [L]
 RewriteRule writefile.php - [L]
+RewriteRule test.php - [L]
 RewriteRule note.txt - [L]
 # Handle the case of backend, skip ([S=1]) the following rule, if current matched
 RewriteRule ^b(/(.*))?$ backend/web/$2

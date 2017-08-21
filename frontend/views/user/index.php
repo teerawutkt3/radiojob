@@ -9,8 +9,9 @@ use wattanapong\datetime\DateTimePicker;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Users';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
+
 <div class="user-index">
 
     <h1><?php // Html::encode($this->title) ?></h1>
@@ -19,10 +20,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?php // Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
                    	<div class="panel-heading"><h1><?= Html::encode("ผู้ใช้งาน") ?></h1></div>
                    <div class="panel-body ">
-                                <?php Pjax::begin(); ?>    <?= GridView::widget([
+                               	
+
+            <?php Pjax::begin([
+            		'enablePushState'=>false
+            ]); ?> 
+                                  <?= GridView::widget([
                                         'dataProvider' => $dataProvider,
                                         'filterModel' => $searchModel,
                                         'columns' => [
@@ -82,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                       
                                          
                                          //    'address_id',
-                                                'license',
+                                         //       'license',
                                 
                                             ['class' => 'yii\grid\ActionColumn'],
                                         ],

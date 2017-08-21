@@ -47,7 +47,13 @@ a.underline:hover {
     text-decoration: none;
 }
 .panel-body {
-background: 	#DDDDDD;}
+background: 	#DDDDDD;
+}
+       .list-group-custom {
+                
+                    background-color: 	#003366;
+                    
+           }
 
 
 </style>
@@ -57,12 +63,14 @@ $this->title = 'Works';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
     <div class="row">
+    		<!-- 	<div class="col-md-4"></div> -->
     			<div class="col-md-10"></div>
     			<div class="col-md-2">
-    			    <?= Html::a('ค้นหาแบบแผนที่ <span class="glyphicon glyphicon-globe"></span>', ['/map/index'], ['class' => '  btn btn-danger']) ?>
+    			    <?= Html::a('ค้นหาแบบแผนที่ <span class="glyphicon glyphicon-globe"></span>', ['/map/index'], ['class' => 'btn-block  btn btn-danger']) ?>
                     <h1><?php // Html::encode("หางาน") ?></h1>
                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     			</div>
+    			
     </div>
 	
 <?php Pjax::begin([
@@ -75,7 +83,7 @@ $this->title = 'Works';
                           		  <?php $form = \yii\widgets\ActiveForm::begin(['options' => ['data-pjax' => true ]]); ?>
                            
                         			<ul class="list-group">
-                        				<li class="list-group-item active ">
+                        				<li class="list-group-item list-group-custom ">
                         					<div class="row"> 
                         					<div class="col-md-3">
                         				  <?= $form->field($searchModel, 'description')->widget(
@@ -89,8 +97,8 @@ $this->title = 'Works';
                                             			
                                        				 	<?php
                                        				 	echo $form->field($searchModel, 'money1')->widget(Slider::classname(), [
-                                       				 	    'sliderColor' => Slider::TYPE_WARNING,
-                                       				 	    'handleColor' => Slider::TYPE_DANGER,
+                                       				 	    'sliderColor' => Slider::TYPE_INFO,
+                                       				 	    'handleColor' => Slider::TYPE_PRIMARY,
                                        				 	    'pluginOptions'=>[
                                        				 	        'min'=>1000,
                                        				 	        'max'=>100000,
@@ -153,20 +161,20 @@ $this->title = 'Works';
 					<?php \yii\widgets\ActiveForm::end(); ?>
     			</div>
    </div>
-    <div class="panel panel-default">
+    <div class="panel ">
                     	 
-                          <div class="panel-body ">
+                          <div class="panel-body   ">
             					<div class="row">
             							<div class="col-md-4">
             								<p class="text-center text-primary"> งานประกาศ _ <span class="glyphicon glyphicon-pencil"></span></p>
-            								<ul class="list-group" style="height:400px; overflow:auto">
+            								<ul class="list-group" style="height:600px; overflow:auto">
             													<?php $count=0;?>
                                             			<?php foreach($dataProvider->models as $model ){ ?>
                                             					<?php $count+=1;?>
                                             					<a class="card underline" href="#" onclick="return loadWork(<?= $model->id?>)">
                                             				<li class="list-group-item list-group-item-default ">
                                             						<div class="caption">
-                                            								<?= $count;?><span class="glyphicon glyphicon-home"> <?=$model->user->fname  ?></span>
+                                            								<?= $count; ?><span class="glyphicon glyphicon-home"> <?=$model->user->fname  ?></span>
                                             							<h3><?=$model->description?></h3>
                                             							<p>ช่วงเงินเดือน <?=$model->range?></p>
                                             							<p>ตำแหน่ง <?= $model->user->address->value

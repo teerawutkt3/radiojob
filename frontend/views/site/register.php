@@ -29,10 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 
                 <?= $form->field($model, 'fb_id')->hiddenInput()->label(false) ?>
              
-                <?php // $form->field($authassignment, 'item_name')->radioList([
-                    //        '1'=>'นักรังสีเทคนิค','2'=>'โรงพยาบาล'])
-                  //           ->label('เลือกสิทธิ์การใข้งาน'); ?>
-                
+                <?php echo  $form->field($authassignment, 'item_name')->radioList([
+                            '1'=>'นักรังสีเทคนิค','2'=>'โรงพยาบาล']) ->label('เลือกสิทธิ์การใข้งาน'); ?>
+          		<p class="text-danger"> * สำหรับการใช้สิทธิ์ "โรงพยาบาล" จะต้องรอการอนุมัติการใช้งานก่อนถึงจะเข้าระบบได้</p>
               
                 <?php // $form->field($model, 'password')->passwordInput() ?>
 

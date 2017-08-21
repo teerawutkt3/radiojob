@@ -22,6 +22,16 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <style type="text/css">
+       .navbar-custom {
+                
+                    background-color: #000033;
+                    
+           }
+   
+     
+    
+    </style>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -33,7 +43,7 @@ AppAsset::register($this);
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
            
-            'class' => 'navbar-inverse  navbar-fixed-top',
+            'class' => 'navbar  navbar-fixed-top navbar-custom',
         ],
     ]);
     $menuItems = [
@@ -48,7 +58,7 @@ AppAsset::register($this);
         ['label' => 'งาน','url' => ['/site/index'], 
             'visible' => Yii::$app->user->can('hospital')?true:false,
         ],
-        ['label' => 'งาน','url' => ['/work/radiolocal'],
+        ['label' => 'งาน','url' => ['site/index'],
             'visible' => Yii::$app->user->can('radiolocal')?true:false,
         ],
         ['label' => 'กำหนดสิทธิ์','url' => ['/assignment/index'],
@@ -56,8 +66,8 @@ AppAsset::register($this);
         ],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    //    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/site/login']];
     } else {
         $user = Yii::$app->user->id;
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'items' => [

@@ -43,7 +43,7 @@ use yii\widgets\DetailView;
                         ])  ?>
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                          <?= Html::a('สมัคร ', ['#'], ['class' => '  btn btn-block btn-warning']) ?>
+                          <?= Html::a('สมัคร ', ['#'], ['class' => '  btn btn-block btn-warning'])?>
                         </div>
                         <div class="col-md-4"></div>
                        

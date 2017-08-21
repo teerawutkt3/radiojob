@@ -45,6 +45,12 @@ class WorkSearch extends Work
     {
         $query = Work::find();
         $query->joinWith(['user']);
+     //   $query->joinWith(['address']);
+   //     $query->joinWith(['districts']);
+  //      $query->joinWith(['amphures']);
+   //     $query->joinWith(['provinces']);
+   //     $query->joinWith(['geography']);
+        
                       
         
        
@@ -76,7 +82,7 @@ class WorkSearch extends Work
 
         $query->andFilterWhere(['like', 'description', $this->description])
                      ->andFilterWhere(['like','user.fname',$this->nameSearch]);
-                 //    ->andFilterWhere(['like','user.address.province.PROVINCE_ID',$this->province]);
+              //       ->andFilterWhere(['like','user.address.province.PROVINCE_ID',$this->province]);
         
                     if (!empty($this->money1) ){
                          $query->andFilterWhere(['>=','money1',$this->money1]);

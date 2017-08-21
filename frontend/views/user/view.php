@@ -46,7 +46,7 @@ background: 	#DDDDDD;}
                                     <?= DetailView::widget([
                                         'model' => $model,
                                         'attributes' => [
-                                            'id',
+                                      //      'id',
                                             'username',
                                             'fname',
                                             'lname',

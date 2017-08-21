@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2017 at 04:58 PM
+-- Generation Time: Aug 20, 2017 at 04:30 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -17986,19 +17986,6 @@ CREATE TABLE `join_work` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map`
---
-
-CREATE TABLE `map` (
-  `MAP_ID` int(11) NOT NULL,
-  `LAT` float DEFAULT NULL,
-  `LONG` float DEFAULT NULL,
-  `DISTRCIT_ID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='แผนที่';
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `migration`
 --
 
@@ -18143,9 +18130,8 @@ INSERT INTO `user` (`id`, `username`, `fname`, `lname`, `fb_id`, `auth_key`, `pa
 (1, 'topyou94@hotmail.com', 'admin', '', '1378474532231573', '', '', NULL, 'topyou94@hotmail.com', 10, 1500107786, 1500112304, 2),
 (2, 'hospital1', 'โรงพยาบาลพะเยาราม', '', '', 'nrpDB3SEpolp1gq1zTIdi2V3b0ercFuj', '$2y$13$uqzH/5OJYmW6tHv8ABoi3eSN2z1pd2bip8Ad2Ns37tHeK3JrPVTXO', NULL, 'h1@gm.c', 10, 1500122444, 1500795905, 10),
 (3, 'hospital2', 'โรงพยาบาลพะเยา', '', '', 's3sADyTmk90BLRHEMWR2JGWBaFL_uE1d', '$2y$13$XXubc41UKPZ9UV7KJRKhv.x8u3Etr45aEdf0J3cb.zFx2smkrNhvu', NULL, 'd@l.com', 10, 1500122460, 1500123157, 3),
-(4, 'technician', 'นักรังสีเทคนิค', '', '', 'ETnVu_LMtPErEZ3zFFzu2p8E6a79SObX', '$2y$13$t20H7QNysEox97HhMm1rAOJya3XWE.B.OwKEnN4RRt/SKvQnP.S9m', NULL, 't@f.com', 10, 1500277537, 1500384320, 8),
-(6, 'test', '', '', '', 'Y6EtUVmEd0Ke3TauyYZ3YA99U1n7r4e3', '$2y$13$Wdij4d0fzI3dOJsfO.aITupXDnuYpFu7N7mJ5iNkgur/ipyxUc/ay', NULL, 'tesrt@sdf.com', 10, 1500644360, 1500644360, NULL),
-(13, 'teerawutkt@gmail.com', 'Tla Krc', '', '1891645194423016', '', '', NULL, 'teerawutkt@gmail.com', 10, 1501502323, 1501502323, NULL);
+(4, 'radiolocal', 'นักรังสีเทคนิค', '', '', 'ETnVu_LMtPErEZ3zFFzu2p8E6a79SObX', '$2y$13$t20H7QNysEox97HhMm1rAOJya3XWE.B.OwKEnN4RRt/SKvQnP.S9m', NULL, 't@f.com', 10, 1500277537, 1500384320, 8),
+(6, 'test', '', '', '', 'Y6EtUVmEd0Ke3TauyYZ3YA99U1n7r4e3', '$2y$13$Wdij4d0fzI3dOJsfO.aITupXDnuYpFu7N7mJ5iNkgur/ipyxUc/ay', NULL, 'tesrt@sdf.com', 10, 1500644360, 1500644360, NULL);
 
 -- --------------------------------------------------------
 
@@ -18176,7 +18162,13 @@ INSERT INTO `work` (`id`, `description`, `time_begin`, `time_end`, `money1`, `mo
 (5, 'ประกาศ1', 22, 22, 15000, 30000, 1500737518, 2),
 (6, 'รับสมัคร นักรังสีเทคนิคที่ถนัดทางด้าน cd scan', 6, 17, 20000, 30000, 1500732729, 2),
 (7, 'a', 1500464040, 1500464040, 15000, 15000, 1500446776, 2),
-(8, 'รับสมัครนักรังสีเทคนิค ', 3, 23, 25000, 30000, 1500707132, 3);
+(8, 'รับสมัครนักรังสีเทคนิค ', 3, 23, 25000, 30000, 1500707132, 3),
+(9, 'ทดสอบเวลา', 23, 23, 15000, 20000, 1502109069, 2),
+(10, '', 23, 6, 20000, 25000, 1502110619, 2),
+(11, 'ประกาสปหกาด่ฟหวกาด่ฟวหก่ดฟวหกาด่ฟวหกสดฟหกด\r\nฟหากด่ฟวกด่วฟกด่ฟวาก่ฟวหาก่ดฟวาก่ดฟวสาก่ดฟ\r\nกาด่ฟวหก่ดาฟวก่ฟวหกา่ดฟหวก่ดฟวหาก่ดฟหวสกดฟ\r\nหกดฟ\r\nหกดฟหกาดฟสวกห', 1502274635, 1502274635, 15000, 24000, 1502256665, 2),
+(12, '', 1502808115, 1502808115, 15000, NULL, 1502782944, 2),
+(13, '', 1502784200, 1502820200, 150000, NULL, 1502784853, 2),
+(14, '', 1502766200, 1502802200, 150000, NULL, 1502785168, 2);
 
 -- --------------------------------------------------------
 
@@ -25787,13 +25779,6 @@ ALTER TABLE `join_work`
   ADD KEY `FK2_user_id` (`user_id`);
 
 --
--- Indexes for table `map`
---
-ALTER TABLE `map`
-  ADD PRIMARY KEY (`MAP_ID`),
-  ADD KEY `FK1_DISTRICT_ID` (`DISTRCIT_ID`);
-
---
 -- Indexes for table `migration`
 --
 ALTER TABLE `migration`
@@ -25869,11 +25854,6 @@ ALTER TABLE `geography`
 ALTER TABLE `join_work`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `map`
---
-ALTER TABLE `map`
-  MODIFY `MAP_ID` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
@@ -25882,12 +25862,12 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `zipcodes`
 --
@@ -25935,12 +25915,6 @@ ALTER TABLE `districts`
 ALTER TABLE `join_work`
   ADD CONSTRAINT `FK2_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK2_work_id` FOREIGN KEY (`work_id`) REFERENCES `work` (`id`);
-
---
--- Constraints for table `map`
---
-ALTER TABLE `map`
-  ADD CONSTRAINT `FK1_DISTRICT_ID` FOREIGN KEY (`DISTRCIT_ID`) REFERENCES `districts` (`DISTRICT_ID`);
 
 --
 -- Constraints for table `provinces`

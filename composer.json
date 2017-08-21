@@ -34,7 +34,8 @@
         "2amigos/yii2-google-maps-library": "*",
         "kartik-v/yii2-nav-x": "*",
         "kartik-v/yii2-tabs-x": "@dev",
-        "thiagotalma/yii2-fullcalendar": "*"
+        "thiagotalma/yii2-fullcalendar": "*",
+        "philippfrenzel/yii2fullcalendar": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -78,8 +78,9 @@ class Address extends \yii\db\ActiveRecord
      */
     public function getAddress_full(){
         $full_address = $this->value." ต.". $this->district->DISTRICT_NAME;
-        $full_address .= "อ.".$this->amphur->AMPHUR_NAME." จ.".$this->province->PROVINCE_NAME;
+        $full_address .= " อ.".$this->amphur->AMPHUR_NAME." จ.".$this->province->PROVINCE_NAME;
         //$full_address .= " ".$this->district->
+     
         return $full_address;
     }
     

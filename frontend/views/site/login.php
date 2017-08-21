@@ -14,31 +14,11 @@ $this->title = 'Login';
 ?>
 
 <div class="site-login">
-	<div class="jumbotron">
-		<h2 class="text-center text-primary">เลือกสิทธิ์ในการใช้งาน</h2><br><br>
-    		<div class="row">
-    		
-    					<div class="col-md-3"> </div>
-    													<div class="col-md-3">
-    																<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"  data-target="#myModal">
-    																			<h2>นักรังสีเทคนิค</h2><br>
-    																</button>
-    													</div>
-    													<div class="col-md-3">
-    																<button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"  data-target="#myModal">
-    																			<h2>โรงพยาบาล</h2><br>	
-    																</button>
-    													</div>
-    					<div class="col-md-3">
-    					</div>
-    		</div>
-		</div>
-    <h1><?= Html::encode($this->title) ?></h1>
 
-  
+  <h1  class="text-center">เข้าสู่ระบบ</h1>
     <div class="row">
     	<div class="col-lg-5">
-    	 <p>Please fill out the following fields to login:</p>
+    	
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                 <?= $form->field($model, 'username')->textInput(['class'=>'form-control border-input','autofocus' => true]) ?>
@@ -56,12 +36,13 @@ $this->title = 'Login';
                    
                 </div>
            <?php ActiveForm::end(); ?>
+           
     	</div> 
     	<div class="col-lg-2"></div>
-	    <div class="col-lg-5">
-	     
-		</div>  
+    		<div class="col-lg-5"><br><?php  echo AuthChoice::widget(['baseAuthUrl' => ['site/auth']  ]);?><p> เข้าสู่ระบบด้วย facebook</p></div>
+    
    	</div>  
+   		
 </div>
 <!-- popup -->
  <div class="modal fade" id="myModal" role="dialog">
