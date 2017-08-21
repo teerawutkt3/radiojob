@@ -34,7 +34,7 @@ use wattanapong\datetime\DateTimePicker;
                                                 'money1',
                                                 'money2',
                                                 [
-                                                    'attribute' =>'created_at',
+                                                    'attribute' =>'create_at',
                                                     'format' => 'html',
                                                     'value' => function($model, $key, $index, $widget) {
                                                     return Yii::$app->formatter->asDatetime($model->created_at,"medium");

@@ -175,7 +175,7 @@ $this->title = 'Works';
                                             				<li class="list-group-item list-group-item-default ">
                                             						<div class="caption">
                                             								<?= $count; ?><span class="glyphicon glyphicon-home"> <?=$model->user->fname  ?></span>
-                                            							<h3><?=$model->description?></h3>
+                                            							<p><?=$model->description?></p>
                                             							<p>ช่วงเงินเดือน <?=$model->range?></p>
                                             							<p>ตำแหน่ง <?= $model->user->address->value
                                             							                             ."ต. " .$model->user->address->district->DISTRICT_NAME

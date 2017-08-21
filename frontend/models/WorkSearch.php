@@ -19,9 +19,9 @@ class WorkSearch extends Work
     public function rules()
     {
         return [
-            [['id', 'time_begin', 'time_end', 'money1', 'money2', 'created_at', 'user_id'], 'integer'],
+            [['id', 'time_begin', 'time_end', 'money1', 'money2', 'create_at', 'user_id'], 'integer'],
      //      [['description',' nameSearch'], 'safe'],
-            [['description', 'time_begin', 'time_end','nameSearch','province_id','province'], 'safe'],
+            [['description', 'time_begin', 'time_end','nameSearch','province_id','province,create_at'], 'safe'],
         ];
     }
 
@@ -77,12 +77,12 @@ class WorkSearch extends Work
         //    'money1' => $this->money1,
           //  'money2' => $this->money2,
           //  'created_at' => $this->created_at,
-            'user_id' => $this->user_id,
+         //   'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'description', $this->description])
-                     ->andFilterWhere(['like','user.fname',$this->nameSearch]);
-              //       ->andFilterWhere(['like','user.address.province.PROVINCE_ID',$this->province]);
+                     ->andFilterWhere(['like','user.fname',$this->nameSearch])
+                     ->andFilterWhere(['like','user.address.province.PROVINCE_ID',$this->province]);
         
                     if (!empty($this->money1) ){
                          $query->andFilterWhere(['>=','money1',$this->money1]);
@@ -91,11 +91,11 @@ class WorkSearch extends Work
                          $query->andFilterWhere(['>=','money2',$this->money2]);
                      }
                      if (!empty($this->created_at) ){
-                         $query->andFilterWhere(['>=','created_at',MyDate::TimeDigit2int($this->created_at)]);
+                         $query->andFilterWhere(['>=','create_at',MyDate::TimeDigit2int($this->created_at)]);
                      }
                      
-                     if (!empty($params['usersearch-created_at_convert'])){
-                         $query->andFilterWhere(['>=','created_at',MyDate::TimeDigit2int($params['usersearch-created_at_convert'])]);
+                     if (!empty($params['worksearch-create_at_convert'])){
+                         $query->andFilterWhere(['>=','create_at',MyDate::TimeDigit2int($params['worksearch-create_at_convert'])]);
                      }
 
         return $dataProvider;

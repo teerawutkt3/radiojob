@@ -46,8 +46,8 @@ class JoinWork extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'datetime_begin' => 'Datetime Begin',
-            'datetime_end' => 'Datetime End',
+            'datetime_begin' => 'เวลาเริ่มงาน',
+            'datetime_end' => 'เวลาเลิกงาน',
             'request' => 'Request',
             'user_id' => 'User ID',
             'work_id' => 'Work ID',

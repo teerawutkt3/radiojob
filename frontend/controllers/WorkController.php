@@ -72,6 +72,8 @@ class WorkController extends Controller
         $dataProvider->query->orderBy([      
             'money1'=> 'DESC'
         ]);
+        
+      //  var_dump($dataProvider->province); die();
 
      //   $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -170,8 +172,8 @@ class WorkController extends Controller
     
                 if ($model->load(Yii::$app->request->post()) ) {
                               $model->user_id = \Yii::$app->user->id;
-                          //    $model->time_begin = MyDate::T2int($model->time_begin);
-                       //       $model->time_end = MyDate::T2int($this->time_end);
+                              $model->time_begin = MyDate::Time2int( $model->time_begin);
+                              $model->time_end = MyDate::Time2int( $model->time_end);
                      //         echo $model->time_begin; die();
                            if ($model->save()){
                                
@@ -195,7 +197,7 @@ class WorkController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['site/index']);
     }
 
     /**

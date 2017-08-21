@@ -33,15 +33,15 @@ use yii\widgets\DetailView;
                 'value' => Yii::$app->formatter->asTime($model->time_end,'medium')
             ],
             [
-                'attribute' => 'created_at',
-                'value' => Yii::$app->formatter->asTime($model->created_at,'medium')
+                'attribute' => 'create_at',
+                'value' => Yii::$app->formatter->asTime($model->create_at,'medium')
             ],
 
             'money1',
             'money2',
             [
-                'attribute' => 'created_at',
-                'value' => Yii::$app->formatter->asDatetime($model->created_at,'medium')
+                'attribute' => 'create_at',
+                'value' => Yii::$app->formatter->asDatetime($model->create_at,'medium')
             ],
             'user.fname',
          

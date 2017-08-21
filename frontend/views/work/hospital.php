@@ -26,9 +26,10 @@ use yii\helpers\Url;
             <div class="panel panel-default">
                     	 <div class="panel-heading"><h3 >ชื่อโรงพยาบาล</h3></div>
                           <div class="panel-body ">
+                          
                                  <?php Pjax::begin([
-		'enablePushState'=>false
-]); ?>  
+                                    		'enablePushState'=>false
+                                    ]); ?>  
                                    
                                        		 <?php 
                                                        
@@ -62,19 +63,21 @@ use yii\helpers\Url;
                                                                                   'attribute' =>'created_at',
                                                                                   'format' => 'html',
                                                                                   'value' => function($model, $key, $index, $widget) {
-                                                                                  return Yii::$app->formatter->asDatetime($model->created_at,"medium");
+                                                                                  return Yii::$app->formatter->asDatetime($model->create_at,"medium");
                                                                                   },
                                                                                   'filter' => DateTimePicker::widget(
                                                                                       [
                                                                                           'model' => $searchModel,
-                                                                                          'attribute' => 'created_at',
+                                                                                          'attribute' => 'create_at',
                                                                                           //'value' => $searchModel->created_at,
-                                                                                          'value' => Yii::$app->formatter->asDatetime($searchModel->created_at,"medium"),
+                                                                                          'value' => Yii::$app->formatter->asDatetime($searchModel->create_at,"medium"),
                                                                                           'language' => 'th',
                                                                                           'dateFormat' => 'dd M yyyy',
                                                                                           'timeFormat' => 'h:m',
                                                                                           'options' => [
-                                                                                              'autoclose' => true
+                                                                                              'autoclose' => true,
+                                                                                              'class' => 'form-control',
+                                                                                              'placeholder'=>'วันที่'
                                                                                           ],
                                                                                       ]
                                                                                       )
@@ -86,11 +89,20 @@ use yii\helpers\Url;
                                                                                           'template' => '{view}{update}{delete}',
                                                                                           'buttons' => [
                                                                                               'view' => function($url,$model){
-                                                                                                  return Html::a('<div class="btn btn-default>
-                                                                                                    <span class="glyphicon glyphicon-eye-open">View</span>
-                                                                                                </div>',Url::toRoute('work/'.$model->id),[
+                                                                                                  return Html::a('    <span class="glyphicon glyphicon-eye-open"></span>
+                                                                                            ',Url::toRoute('work/'.$model->id),[
                                                                                                     'target' => '_blank','data-pjax' => 0
                                                                                                 ]);
+                                                                                              },
+                                                                                              'update' => function($url,$model){
+                                                                                              return Html::a(' <span class="	glyphicon glyphicon-pencil"></span> ',Url::toRoute('work/update?id='.$model->id));},                                                                                
+                                                                                              'delete' => function($url,$model){
+                                                                                              return Html::a('<span class="		glyphicon glyphicon-trash"></span>',Url::toRoute('work/delete?id='.$model->id),[
+                                                                                                  'data' => [
+                                                                                                      'confirm' => 'ต้องการลยงานประกาศนี้หรือไม่',
+                                                                                                      'method' => 'post',
+                                                                                                  ],
+                                                                                              ]);
                                                                                               }
                                                                                           ]
                                                                                           

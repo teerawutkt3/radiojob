@@ -9,17 +9,24 @@ use wattanapong\datetime\DateTimePicker;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Auth Assignments';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-assignment-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode("การกำหนดสิทธิ์การใช้งาน") ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Auth Assignment', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+	<div class="row">
+				<div class="col-md-11"></div>
+				<div class="col-md-1">
+								<p>
+                                    <?= Html::a('<span class="glyphicon glyphicon-copy"></span>', ['create'], ['class' => 'btn btn-success']) ?>
+                                </p>
+				</div>
+	</div>
+    
+<?php Pjax::begin([
+		'enablePushState'=>false
+]); ?>     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -51,6 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         'dateFormat' => 'dd M yyyy',
                         'timeFormat' => 'h:m',
                         'options' => [
+                            'class' => 'form-control',
+                            'placeholder'=>'วันที่',
                             'autoclose' => true
                         ],
                     ]

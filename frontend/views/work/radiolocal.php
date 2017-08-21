@@ -11,19 +11,19 @@ use common\models\Work;
 
                       //Testing  event calendar
                       $events = array();
-                      $Event = new \yii2fullcalendar\models\Event();
+                   /*    $Event = new \yii2fullcalendar\models\Event();
                       $Event->id = 1;
                       $Event->title = 'โรงพยาบาลพะเยา';
                       $Event->editable=TRUE;
                       $Event->start = date('Y-m-d\TH:i:s\Z');
                    
-                      $events[] = $Event;
+                      $events[] = $Event; */
                       
                       $Event = new \yii2fullcalendar\models\Event();
                       $Event->id = 2;
-                      $Event->title = 'Testing';
-                      $Event->start = date('Y-m-d\TH:i:s\Z',strtotime('tomorrow 6am'));
-                      $Event->end = date('Y-m-d\TH:i:s\Z',strtotime('tomorrow 10am'));
+                      $Event->title = 'โรงพยาบาลพะเยา';
+                      $Event->start = date('Y-m-d\TH:i:s\Z',strtotime('monday 6am'));
+                      $Event->end = date('Y-m-d\TH:i:s\Z',strtotime('monday 10am'));
                       $events[] = $Event;
                       //Testing  event calendar
                  

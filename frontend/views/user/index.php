@@ -55,7 +55,9 @@ $this->title = 'Users';
                                                             'dateFormat' => 'dd M yyyy',
                                                             'timeFormat' => 'h:m',
                                                             'options' => [
-                                                                'autoclose' => true
+                                                                'autoclose' => true,
+                                                                'class' => 'form-control',
+                                                                'placeholder'=>'วันที่'
                                                             ],
                                                         ]
                                                         )
@@ -80,7 +82,9 @@ $this->title = 'Users';
                                                         'dateFormat' => 'dd M yyyy',
                                                         'timeFormat' => 'h:m',
                                                         'options' => [
-                                                            'autoclose' => true
+                                                            'autoclose' => true,
+                                                            'class' => 'form-control',
+                                                            'placeholder'=>'วันที่'
                                                         ],
                                                     ]
                                                     )

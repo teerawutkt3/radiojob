@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
  * @property integer $time_end
  * @property integer $money1
  * @property integer $money2
- * @property integer $created_at
+ * @property integer $create_at
  * @property integer $user_id
  *@property integer $province_id
 * 
@@ -38,8 +38,8 @@ class Work extends \yii\db\ActiveRecord
             [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['created_at'],
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['create_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['create_at'],
                 ],
             ],
         ];
@@ -57,7 +57,7 @@ class Work extends \yii\db\ActiveRecord
         return [
             [['description'], 'string'],
             [['time_begin', 'time_end', 'money1'], 'required'],
-            [[ 'money1', 'money2', 'created_at', 'user_id'], 'integer'],
+            [[ 'money1', 'money2', 'create_at', 'user_id'], 'integer'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -74,7 +74,7 @@ class Work extends \yii\db\ActiveRecord
             'time_end' => 'เวลาเลิกงาน',
             'money1' => 'เงินเดือน / บาท',
             'money2' => 'เงือนเดิน',
-            'created_at' => 'เวลาประกาศ',
+            'create_at' => 'เวลาประกาศ',
             'user_id' => 'ผู้ประกาศ',
             'nameSearch' => 'ผู้ประกาศ',
             'geo_id' => '',
