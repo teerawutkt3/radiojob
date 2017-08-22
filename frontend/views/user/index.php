@@ -11,7 +11,9 @@ use wattanapong\datetime\DateTimePicker;
 $this->title = 'Users';
 
 ?>
-
+<?php Pjax::begin([
+		'enablePushState'=>false
+]); ?>  
 <div class="user-index">
 
     <h1><?php // Html::encode($this->title) ?></h1>
@@ -25,9 +27,7 @@ $this->title = 'Users';
                    <div class="panel-body ">
                                	
 
-            <?php Pjax::begin([
-            		'enablePushState'=>false
-            ]); ?> 
+       
                                   <?= GridView::widget([
                                         'dataProvider' => $dataProvider,
                                         'filterModel' => $searchModel,
@@ -97,4 +97,4 @@ $this->title = 'Users';
                                             ['class' => 'yii\grid\ActionColumn'],
                                         ],
                                     ]); ?>
-<?php Pjax::end(); ?></div></div></div>
+</div></div></div><?php Pjax::end(); ?>
